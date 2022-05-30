@@ -11,7 +11,8 @@ int* create_array(int SIZE)
 		arr[i] = 0;
 	}
 	return arr;
-  
+}
+
 void Square(int a, int b) {
 	int square = pow(a, b);
 	cout << square;
@@ -30,7 +31,6 @@ void ShowArray(int arr[], int size){
 
 int main() {
 	setlocale(LC_ALL, "rus");
-  const int SIZE = 10;
-	create_array(SIZE);
+    
 	return 0;
 }
