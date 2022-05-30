@@ -2,8 +2,12 @@
 
 using namespace std;
 
+void Square(int a, int b) {
+	int square = pow(a, b);
+	cout << square;
+}
+
 int main() {
 	setlocale(LC_ALL, "rus");
-    
-    return 0;
+	return 0;
 }
