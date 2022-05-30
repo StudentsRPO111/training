@@ -11,11 +11,15 @@ int* create_array(int SIZE)
 		arr[i] = 0;
 	}
 	return arr;
+  
+void Square(int a, int b) {
+	int square = pow(a, b);
+	cout << square;
 }
 
 int main() {
 	setlocale(LC_ALL, "rus");
-	const int SIZE = 10;
+  const int SIZE = 10;
 	create_array(SIZE);
 	return 0;
 }
