@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 void Square(int a, int b) {
 	int square = pow(a, b);
 	cout << square;
@@ -11,7 +10,6 @@ void Square(int a, int b) {
 void increment(int *a)
 {
 	(*a)++;
-
 }
 
 int main() {
