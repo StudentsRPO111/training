@@ -31,6 +31,6 @@ void ShowArray(int arr[], int size){
 
 int main() {
 	setlocale(LC_ALL, "rus");
-    
+
 	return 0;
 }
