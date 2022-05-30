@@ -29,6 +29,12 @@ void ShowArray(int arr[], int size){
     }
 }
 
+void square_array_elements(int* arr[], int size){
+    for(int i = 0; i < size; i++){
+        *arr[i] = *arr[i] * *arr[i];
+    }
+}
+
 int main() {
 	setlocale(LC_ALL, "rus");
 
