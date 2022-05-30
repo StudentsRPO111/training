@@ -1,20 +1,21 @@
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
-int Create_Array(const int SIZE)
+int* create_array(int SIZE)
 {
-	int arr[SIZE];
+	int *arr = new int[SIZE];
 	for (int i = 0; i < SIZE; i++)
 	{
-		arr[i] = rand() % 11;
-		return arr[i];
+		arr[i] = 0;
 	}
+	return arr;
 }
 
 int main() {
 	setlocale(LC_ALL, "rus");
 	const int SIZE = 10;
-	Create_Array(SIZE);
-    return 0;
+	create_array(SIZE);
+	return 0;
 }
