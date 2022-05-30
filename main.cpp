@@ -17,6 +17,11 @@ void Square(int a, int b) {
 	cout << square;
 }
 
+void increment(int *a)
+{
+	(*a)++;
+}
+
 int main() {
 	setlocale(LC_ALL, "rus");
   const int SIZE = 10;
