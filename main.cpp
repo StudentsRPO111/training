@@ -4,7 +4,7 @@ int func1(int a){
     cout << a;
 }
 int main() {
-	cout << " ^.^ ";
+	cout << " *^.^* ";
 	sertlocale(0, "rus");
 	std::cout << "���� �� ��� �������, �� ������ � ���� ��������, ������ �������-��������";
     int a;
