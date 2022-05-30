@@ -24,5 +24,6 @@ int main() {
         cout << i;
     }
     func1(a);
+	cout << "Hello";
     return 0;
 }
