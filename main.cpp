@@ -1,3 +1,9 @@
+#include <iostream>
+using namespace std;
+
 int main() {
-    return 0;
+	int a;
+	cin > a;
+	cout << a;
+    	return 0;
 }
