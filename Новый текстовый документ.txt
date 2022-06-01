@@ -1,0 +1,142 @@
+#include <iostream>
+
+using namespace std;
+
+char table[3][3];
+char player1[30];
+char player2[30];
+const int SIZE = 3;
+
+bool check_winner(char mark);
+
+void show_instruction()
+{
+	cout << "\t\t***Крестики-нолики***\n\n";
+	cout << "Правила: \n";
+	cout << "Играют два игрока на поле 3х3\n";
+	cout << "Побеждает тот кто быстрее составит комбинацию из трех одинаковых символов\n";
+
+	int l = 0;
+	for (int i = 0; i < SIZE; i++)
+	{
+		for (int j = 0; j < SIZE; j++)
+		{
+			cout << "| " << l + 1 << ' ';
+			table[i][j] = char(49) + l;
+			l++;
+		}
+		cout << '|';
+		cout << endl;
+	}
+	cout << "==============================================" << endl;
+}
+
+void table_print()
+{
+	cout << "  X0  X1  X2" << endl;
+	for (int i = 0; i < SIZE; i++)
+	{
+		for (int j = 0; j < SIZE; j++)
+		{
+			cout << "| " << table[i][j] << ' ';
+		}
+		cout << '|';
+		cout << endl;
+	}
+}
+
+void turn(char mark) {
+	int x, y;
+
+	cout << "Ход: " << player1 << endl;
+	while (true)
+	{
+		cout << "Ход: " << player1 << endl;
+		cout << "Введите координату X: " << endl;
+		cin >> x;
+		cout << "Введите координату Y:" << endl;
+		cin >> y;
+		if (table[y-1][x-1] == 'X' || table[y-1][x-1] == '0' || x < 1 || x > SIZE || y < 1 || y > SIZE )
+		{
+			cout << "Ошибка ввода попробуйте еще раз!";
+		}
+		else
+		{
+			table[y][x] = mark;
+		}
+	}
+	system("cls");
+	table_print();
+}
+
+
+void game_loop(char mark)
+{
+	
+	for (int i = 0; i < 9; i++)
+	{
+		int x, y;
+		cout << "Ход: " << player2 << endl;
+		cout << "Введите координату X: " << endl;
+		cin >> x;
+		cout << "Введите координату Y:" << endl;
+		cin >> y;
+		if (table[y][x] == 'X' || table[y][x] == '0')
+		{
+			cout << "Ошибка ввода попробуйте еще раз!";
+		}
+		else
+		{
+			table[y][x] = '0';
+		}
+		system("cls");
+		table_print();
+		if (check_winner(mark))
+			return;
+	}
+	cout << "Ничья";
+}
+
+bool check_winner(char mark)
+{
+	int count_diag_left = 0;
+	int count_diag_right = 0;
+	for (int i = 0; i < SIZE; i++)
+	{
+		int count_row = 0;
+		int count_col = 0;
+		if (table[i][i] == mark)
+			count_diag_left++;
+		if (table[i][SIZE-i] == mark)
+			count_diag_right++;
+		for (int j = 0; j < SIZE; j++)
+		{
+			if (table[i][j] == mark)
+			{
+				count_row++;
+			}
+			if (table[j][i] == mark)
+			{
+				count_col++;
+			}
+		}
+		if (count_row == 3 || count_col == 3 || count_diag_left == 3 || count_diag_right == 3)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	show_instruction();
+	cout << "\nИгровое поле\n" << endl;
+	table_print();
+	cout << "Введите имя первого игрока: \n";
+	cin >> player1;
+	cout << "Введите имя второго игрока: \n";
+	cin >> player2;
+	game_loop('X');
+}
